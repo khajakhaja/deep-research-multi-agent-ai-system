@@ -12,6 +12,7 @@ and write a report grounded in the sources actually retrieved.
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688)
 ![LangGraph](https://img.shields.io/badge/LangGraph-1.x-orange)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+[![CI](https://github.com/khajakhaja/deep-research-multi-agent-ai-system/actions/workflows/ci.yml/badge.svg)](https://github.com/khajakhaja/deep-research-multi-agent-ai-system/actions/workflows/ci.yml)
 
 ---
 
