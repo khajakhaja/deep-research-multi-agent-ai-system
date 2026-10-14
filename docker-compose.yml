@@ -1,0 +1,50 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: research
+      POSTGRES_PASSWORD: research
+      POSTGRES_DB: research
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U research -d research"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://research:research@db:5432/research
+      BACKEND_HOST: 0.0.0.0
+      BACKEND_PORT: 8000
+      BACKEND_BASE_URL: http://backend:8000
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    volumes:
+      - appdata:/app/data
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    environment:
+      BACKEND_BASE_URL: http://backend:8000
+    depends_on:
+      - backend
+    ports:
+      - "8501:8501"
+
+volumes:
+  pgdata:
+  appdata:

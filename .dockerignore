@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets / local config
+.env
+.env.*
+!.env.example
+
+# Local data (databases, checkpoints)
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs and reports
+*.log
+reports/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Docker
+.dockerignore
