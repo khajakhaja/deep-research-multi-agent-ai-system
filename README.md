@@ -48,6 +48,17 @@ citations. This project treats **grounding and verification** as first-class:
 - **Evaluation harness** — a small benchmark with measurable metrics.
 - **Tested** — 61 unit and integration tests, using injected fakes (no network).
 
+### Try it offline (no API keys)
+
+Want to see it work without credentials? Run the deterministic demo — it drives
+the full workflow with fakes and writes a walkthrough:
+
+```bash
+python scripts/demo.py     # writes docs/example_output.md
+```
+
+See [`docs/example_output.md`](docs/example_output.md) for the generated result.
+
 ---
 
 ## Architecture
